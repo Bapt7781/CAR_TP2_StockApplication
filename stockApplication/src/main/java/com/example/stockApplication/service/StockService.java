@@ -28,4 +28,20 @@ public class StockService {
             }
         }
     }
+
+    public void diminuerStock(String nomArticle, int qteADeduire) {
+        for (Article article : stock) {
+            if (article.getLibelle().equalsIgnoreCase(nomArticle)) {
+
+                int nouvelleQte = article.getQuantite() - qteADeduire;
+
+                if (nouvelleQte < 0) {
+                    nouvelleQte = 0;
+                }
+
+                article.setQuantite(nouvelleQte);
+
+            }
+        }
+    }
 }
