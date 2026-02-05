@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestion de Stock</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Gestion de Stock</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Article</th>
+        <th>Quantité</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="article : ${articles}">
+        <td th:text="${article.libelle}">Nom</td>
+        <td th:text="${article.quantite}">0</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+
+<a href="/stock/home">
+    Actualiser le tableau
+</a>
+
+<form action="/restock" method="post">
+    <br>
+    <button type="submit">
+        Réapprovisionnement
+    </button>
+</form>
+
+
+</body>
+</html>
